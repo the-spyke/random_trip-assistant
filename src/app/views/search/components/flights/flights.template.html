@@ -1,0 +1,36 @@
+<form name="formFlight" novalidate="novalidate">
+    <fieldset ng-disabled="$ctrl.isLoading">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="formFlightDateStart">Start date</label>
+                <input type="date" class="form-control" id="formFlightDateStart" name="dateStart"
+                    ng-model="$ctrl.searchRequest.dateStart" required="required" min="2016-01-01" max="2016-12-31">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="formFlightDateEnd">End date</label>
+                <input type="date" class="form-control" id="formFlightDateEnd" name="dateEnd"
+                    ng-model="$ctrl.searchRequest.dateEnd" required="required" min="2016-01-01" max="2016-12-31">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <label for="formFlightCityFrom">From</label>
+                <input type="text" class="form-control" id="formFlightCityFrom" name="cityFrom"
+                    ng-model="$ctrl.searchRequest.cityFrom" required="required" minlength="3" maxlength="32">
+            </div>
+            <div class="form-group col-md-12">
+                <label for="formFlightCityTo">To</label>
+                <input type="text" class="form-control" id="formFlightCityTo" name="cityTo"
+                    ng-model="$ctrl.searchRequest.cityTo" required="required" minlength="3" maxlength="32">
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <button type="button" class="btn btn-primary" ng-click="$ctrl.onSearchClick()">Search</button>
+            </div>
+            <div class="form-group col-md-6 text-right">
+                <button type="button" class="btn btn-link" ng-click="$ctrl.showClearMessage()">Clear</button>
+            </div>
+        </div>
+    </fieldset>
+</form>

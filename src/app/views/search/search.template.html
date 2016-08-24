@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+        <ul class="nav nav-tabs tabs-left">
+            <li ng-class="{ active: $ctrl.type === 'flight' } ">
+                <a href="#" role="button" ng-click="$ctrl.switchType('flight')">Flights</a>
+            </li>
+            <li ng-class="{ active: $ctrl.type === 'hotel' } ">
+                <a href="#" role="button" ng-click="$ctrl.switchType('hotel')">Hotels</a>
+            </li>
+            <li ng-class="{ active: $ctrl.type === 'car' } ">
+                <a href="#" role="button" ng-click="$ctrl.switchType('car')">Cars</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div class="tab-content">
+            <div class="tab-pane" ng-class="{ active: $ctrl.type === 'flight' } ">
+                <xx-search-flights></xx-search-flights>
+            </div>
+            <div class="tab-pane" ng-class="{ active: $ctrl.type === 'hotel' } ">Hotels Tab</div>
+            <div class="tab-pane" ng-class="{ active: $ctrl.type === 'car' } ">Cars Tab</div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>

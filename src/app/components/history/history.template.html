@@ -1,0 +1,22 @@
+<div class="row spk-history">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <hr />
+        <p>Previous searches [{{ $ctrl.logs.length }}]:</p>
+        <div class="row spk-history__row" ng-repeat="log in $ctrl.logs track by log.id">
+            <div class="col-md-1">
+                <span class="glyphicon" ng-class="$ctrl.getIconClass(log.type)" aria-hidden="true"></span>
+            </div>
+            <div class="col-md-3">
+                {{:: log.dateStart | date : 'MMM d' }} &#8596; {{:: log.dateEnd | date : 'MMM d' }}
+            </div>
+            <div class="col-md-7">
+                {{:: log.title }} [{{:: log.id }}]
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-link btn-xs" ng-click="$ctrl.onDeleteClick($index)" title="Delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
