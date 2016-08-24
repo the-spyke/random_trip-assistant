@@ -6,7 +6,6 @@
             "modules": "webpack",
             "js": "babel",
             "css": "less",
-            "resolved": "C:\\Users\\anton.alexandrenok\\AppData\\Roaming\\npm\\node_modules\\generator-fountain-webapp\\node_modules\\generator-fountain-angular1\\generators\\app\\index.js",
             "namespace": "fountain-angular1",
             "argv": {
                 "remain": [],
