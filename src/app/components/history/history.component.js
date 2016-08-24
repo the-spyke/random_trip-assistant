@@ -23,14 +23,22 @@ class HistoryController {
         // }
     }
 
+    get logLimit() {
+        return LOG_LIMIT;
+    }
+
     getIconClass(type) {
         if (type === 'flight') {
             return 'glyphicon-plane';
         } else if (type === 'hotel') {
             return 'glyphicon-bed';
-        } else {
-            return 'glyphicon-dashboard';
         }
+
+        return 'glyphicon-dashboard';
+    }
+
+    onOpenClick(index) {
+        alert('TODO');
     }
 
     onDeleteClick(index) {

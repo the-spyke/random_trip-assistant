@@ -2,10 +2,11 @@
     <div class="col-md-2"></div>
     <div class="col-md-8">
         <hr />
-        <p>Previous searches [{{ $ctrl.logs.length }}]:</p>
+        <p class="text-center" ng-show="$ctrl.logs.length > 0"><span class="label label-default">Previous Searches</span></p>
+        <br />
         <div class="row spk-history__row" ng-repeat="log in $ctrl.logs track by log.id">
             <div class="col-md-1">
-                <span class="glyphicon" ng-class="$ctrl.getIconClass(log.type)" aria-hidden="true"></span>
+                <button type="button" class="btn btn-link btn-xs" ng-click="$ctrl.onOpenClick($index)" title="Open these search parameters"><span class="glyphicon" ng-class="$ctrl.getIconClass(log.type)" aria-hidden="true"></span></button>
             </div>
             <div class="col-md-3">
                 {{:: log.dateStart | date : 'MMM d' }} &#8596; {{:: log.dateEnd | date : 'MMM d' }}
@@ -14,9 +15,11 @@
                 {{:: log.title }} [{{:: log.id }}]
             </div>
             <div class="col-md-1">
-                <button type="button" class="btn btn-link btn-xs" ng-click="$ctrl.onDeleteClick($index)" title="Delete"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <button type="button" class="close" title="Remove" ng-click="$ctrl.onDeleteClick($index)"><span aria-hidden="true">&times;</span></button>
             </div>
         </div>
+        <br />
+        <p class="text-center" ng-show="$ctrl.logs.length > 0"><span class="badge">{{ $ctrl.logs.length }} / {{:: $ctrl.logLimit }}</span></p>
     </div>
     <div class="col-md-2"></div>
 </div>
