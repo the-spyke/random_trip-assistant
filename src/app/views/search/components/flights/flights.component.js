@@ -5,12 +5,7 @@ class FlightsController {
         this.type = 'flight';
         this.isLoading = false;
 
-        this.searchRequest = {
-            dateStart: new Date(2016, 8, 5),
-            dateEnd: new Date(2016, 8, 30),
-            cityFrom: 'New York',
-            cityTo: 'London'
-        };
+        this.reset();
     }
 
     onSearchClick() {
@@ -21,13 +16,22 @@ class FlightsController {
             this.searchRequest.cityFrom,
             this.searchRequest.cityTo
         ).then(result => {
-            //alert(result);
+            // alert(result);
             this.isLoading = false;
         });
     }
 
-    showClearMessage() {
-        alert('Clear button has no sense in a good UI.');
+    reset() {
+        this.searchRequest = {
+            dateStart: new Date(2016, 8, 5),
+            dateEnd: new Date(2016, 8, 30),
+            cityFrom: 'New York',
+            cityTo: 'London'
+        };
+
+        if (this.formFlight) {
+            this.formFlight.$setPristine();
+        }
     }
 }
 
