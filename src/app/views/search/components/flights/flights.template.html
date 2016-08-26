@@ -1,35 +1,51 @@
 <form name="$ctrl.formFlight" class="spk-form" novalidate="novalidate">
     <fieldset ng-disabled="$ctrl.isLoading">
         <div class="row">
-            <div class="form-group col-md-6">
-                <label class="control-label" for="formFlightDateStart">Start date</label>
-                <input type="date" class="form-control" id="formFlightDateStart" name="dateStart"
-                    ng-model="$ctrl.searchRequest.dateStart" required="required" min="2016-01-01" max="2016-12-31">
+            <div class="col-md-6">
+                <div class="form-group has-feedback" ng-class="$ctrl.getValidationGroupClass($ctrl.formFlight.dateStart)">
+                    <label class="control-label" for="formFlightDateStart">Start date</label>
+                    <input type="date" class="form-control" id="formFlightDateStart" name="dateStart" ng-model="$ctrl.searchRequest.dateStart"
+                        required="required" min="2016-01-01" max="2016-12-31" />
+                    <span class="glyphicon form-control-feedback" ng-class="$ctrl.getValidationIconClass($ctrl.formFlight.dateStart, true)" aria-hidden="true" ></span>
+                </div>
             </div>
-            <div class="form-group col-md-6">
-                <label class="control-label" for="formFlightDateEnd">End date</label>
-                <input type="date" class="form-control" id="formFlightDateEnd" name="dateEnd"
-                    ng-model="$ctrl.searchRequest.dateEnd" required="required" min="2016-01-01" max="2016-12-31">
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-md-12">
-                <label class="control-label" for="formFlightCityFrom">From</label>
-                <input type="text" class="form-control" id="formFlightCityFrom" name="cityFrom"
-                    ng-model="$ctrl.searchRequest.cityFrom" required="required" minlength="3" maxlength="32">
-            </div>
-            <div class="form-group col-md-12">
-                <label class="control-label" for="formFlightCityTo">To</label>
-                <input type="text" class="form-control" id="formFlightCityTo" name="cityTo"
-                    ng-model="$ctrl.searchRequest.cityTo" required="required" minlength="3" maxlength="32">
+            <div class="col-md-6">
+                <div class="form-group has-feedback" ng-class="$ctrl.getValidationGroupClass($ctrl.formFlight.dateEnd)">
+                    <label class="control-label" for="formFlightDateEnd">End date</label>
+                    <input type="date" class="form-control" id="formFlightDateEnd" name="dateEnd" ng-model="$ctrl.searchRequest.dateEnd" required="required"
+                        min="2016-01-01" max="2016-12-31" />
+                    <span class="glyphicon form-control-feedback" ng-class="$ctrl.getValidationIconClass($ctrl.formFlight.dateEnd, true)" aria-hidden="true" ></span>
+                </div>
             </div>
         </div>
         <div class="row">
-            <div class="form-group col-md-6">
-                <button type="button" class="btn btn-primary" ng-click="$ctrl.onSearchClick()">Search</button>
+            <div class="col-md-12">
+                <div class="form-group has-feedback" ng-class="$ctrl.getValidationGroupClass($ctrl.formFlight.cityFrom)">
+                    <label class="control-label" for="formFlightCityFrom">From</label>
+                    <input type="text" class="form-control" id="formFlightCityFrom" name="cityFrom" ng-model="$ctrl.searchRequest.cityFrom" required="required"
+                        minlength="3" maxlength="32" />
+                    <span class="glyphicon form-control-feedback" ng-class="$ctrl.getValidationIconClass($ctrl.formFlight.cityFrom, true)" aria-hidden="true" ></span>
+                </div>
             </div>
-            <div class="form-group col-md-6 text-right">
-                <button type="button" class="btn btn-link" ng-click="$ctrl.reset()">Reset</button>
+            <div class="col-md-12">
+                <div class="form-group has-feedback" ng-class="$ctrl.getValidationGroupClass($ctrl.formFlight.cityTo)">
+                    <label class="control-label" for="formFlightCityTo">To</label>
+                    <input type="text" class="form-control" id="formFlightCityTo" name="cityTo" ng-model="$ctrl.searchRequest.cityTo" required="required"
+                        minlength="3" maxlength="32" />
+                    <span class="glyphicon form-control-feedback" ng-class="$ctrl.getValidationIconClass($ctrl.formFlight.cityTo, true)" aria-hidden="true" ></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary" ng-click="$ctrl.onSearchClick()">Search</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group text-right">
+                    <button type="button" class="btn btn-link" ng-click="$ctrl.reset()">Reset</button>
+                </div>
             </div>
         </div>
     </fieldset>

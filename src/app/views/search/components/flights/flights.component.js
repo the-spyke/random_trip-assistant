@@ -15,8 +15,7 @@ class FlightsController {
             this.searchRequest.dateEnd,
             this.searchRequest.cityFrom,
             this.searchRequest.cityTo
-        ).then(result => {
-            // alert(result);
+        ).then(() => {
             this.isLoading = false;
         });
     }
@@ -32,6 +31,30 @@ class FlightsController {
         if (this.formFlight) {
             this.formFlight.$setPristine();
         }
+    }
+
+    getValidationGroupClass(input) {
+        if (input.$pristine) {
+            return '';
+        } else if (input.$valid) {
+            return 'has-success';
+        }
+
+        return 'has-error';
+    }
+
+    getValidationIconClass(input, isRequired = false) {
+        if (input.$pristine) {
+            if (isRequired) {
+                return 'glyphicon-asterisk text-info spk-required-field';
+            }
+
+            return 'hidden';
+        } else if (input.$valid) {
+            return 'glyphicon-ok';
+        }
+
+        return 'glyphicon-remove';
     }
 }
 
