@@ -46,10 +46,10 @@ class FlightsController {
     getValidationIconClass(input, isRequired = false) {
         if (input.$pristine) {
             if (isRequired) {
-                return 'glyphicon-asterisk text-info spk-required-field';
+                return 'glyphicon-star-empty';
             }
 
-            return 'hidden';
+            return '';
         } else if (input.$valid) {
             return 'glyphicon-ok';
         }
